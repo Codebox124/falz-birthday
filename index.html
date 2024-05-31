@@ -8,13 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         @keyframes pulse {
-
             0%,
             100% {
                 transform: scale(1);
                 opacity: 1;
             }
-
             50% {
                 transform: scale(1.05);
                 opacity: 0.7;
@@ -24,24 +22,47 @@
         .pulse {
             animation: pulse 2s infinite;
         }
-        /* img{
-            width: 300px;
-        } */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        body {
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+        }
+
+        h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 
-<body class="bg-gray-900 text-white flex flex-col items-center  justify-center min-h-screen">
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
     <div class="text-center mb-12 px-16">
-        <h1 class="text-2xl md:text-4xl font-bold mb-8">Save the Date! The wait is nearly over. The official countdown for the EP “Before The Feast” has begun.</h1>
-        <div id="countdown" class="text-2xl md:text-4xl font-mono"></div>
+        <h1 class="text-3xl md:text-5xl font-bold mb-8">Save the Date! The wait is nearly over. The official countdown for the EP “Before The Feast” has begun.</h1>
+        <div id="countdown" class="countdown-container text-2xl md:text-4xl font-mono p-4"></div>
+        <button class="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold rounded-lg shadow-lg transition duration-300">Learn More</button>
     </div>
-    <div class=" flex justify-center mt-5  gap-4">
-        <div class="p-2">
-            <img src="img1.jpeg" alt="Celebrant 1" class="rounded-lg shadow-lg">
+    <div class="flex justify-center mt-5 gap-4">
+        <div class="p-2 fade-in">
+            <img src="img1.jpeg" alt="Celebrant 1" class="rounded-lg shadow-lg w-72">
         </div>
-       
-       
-   
     </div>
     <script>
         const countdownElement = document.getElementById('countdown');
@@ -67,7 +88,6 @@
 
         setInterval(updateCountdown, 1000);
         updateCountdown();
-
     </script>
 </body>
 
